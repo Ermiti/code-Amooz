@@ -59,7 +59,7 @@ const server = createServer((req,res) => {
     
              req.on('end' , () => {
                  let data = qs.parse(body);
-                 fs.appendFileSync('db.txt' , "\n" + "name: " + data.name +" question is : " + data.question + " email is: " + data.email);
+                 fs.appendFileSync('example.sql' ,"\n" + "INSERT INTO myTable (theName, question, email) VALUES ("+ data.name + ", " + data.question +", " + data.email + ");");
                  res.writeHead(302 , {'Location' : '/result'})
                  res.end();
              })
